@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './quiz/home/home.component';
+import { QuizComponent } from './quiz/quiz/quiz.component';
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent
-  }
+  },
+  {
+    path: 'quiz', component: QuizComponent
+  },
 ];
 
 @NgModule({

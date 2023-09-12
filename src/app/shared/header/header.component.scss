@@ -27,3 +27,14 @@
     text-align: center;
   }
 }
+
+
+@media screen and (min-width: 75em) {
+
+  .header{
+    a{
+      font-size: 70px;
+    }
+  }
+}
+

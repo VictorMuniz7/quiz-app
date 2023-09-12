@@ -1,0 +1,54 @@
+<div class="back" [ngClass]="categoryClass">
+  <div class="container">
+    <button id="exitBtn" (click)="exit()">Exit <i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal"></i></button>
+
+    <div class="final-div" *ngIf="showResults">
+      <h2>Congratulations!!</h2>
+      <p>Your score: {{ points }}</p>
+
+      <button (click)="play()">Play Again</button>
+    </div>
+
+
+    <div *ngIf="currentQuestion && !showResults">
+
+      <div class="top-div">
+        <p id="points">Points: {{ points }}/10</p>
+      </div>
+
+      <div class="progress-div">
+        <progress [value]="progressValue" max="10" ></progress>
+      </div>
+      <div class="question-div">
+        <p>{{ currentQuestion.question | quote }}</p>
+      </div>
+
+      <div class="options-div">
+
+          <button *ngFor="let option of answers" (click)="verifyAnswer(option, selected)" [disabled]="answerClicked" #selected>
+            {{ option | quote }}
+           </button>
+
+      </div>
+
+      <div class="timer-div" *ngIf="!timeEnds">
+        <p>{{ secondsRemaining }}</p>
+      </div>
+
+
+      <div class="next-div" *ngIf="timeEnds">
+        <button (click)="showNextQuestion()">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
